@@ -1,37 +1,760 @@
----
-import Layout from '../components/Layout.astro';
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="theme-color" content="#000" />
+  <link rel="preconnect" href="https://<%= appId %>-dsn.algolia.net" crossorigin />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="app.css" />
+  <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
 
-<Layout title="Astro Quickstart">
-	<main>
-    <svg id="background" width='1728' height='1235' viewBox="0 0 1728 1235" fill='none' xmlns='http://www.w3.org/2000/svg'><g opacity='0.75' filter='url(#filter0_f_39_143)'><circle cy='1000' r='264' fill='url(#paint0_linear_39_143)'/></g><g opacity='0.65' filter='url(#filter1_f_39_143)'><circle cx='1720' cy='264' r='379' fill='url(#paint1_linear_39_143)'/></g><defs><filter id='filter0_f_39_143' x='-485' y='515' width='970' height='970' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><filter id='filter1_f_39_143' x='1120' y='-336' width='1200' height='1200' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'><feFlood flood-opacity='0' result='BackgroundImageFix'/><feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape'/><feGaussianBlur stdDeviation='110.5' result='effect1_foregroundBlur_39_143'/></filter><linearGradient id='paint0_linear_39_143' x1='196.5' y1='902' x2='-2.55853e-05' y2='1264' gradientUnits='userSpaceOnUse'><stop stop-color="var(--bttm-left-blur-1)"/><stop offset='1' stop-color="var(--bttm-left-blur-2)"/></linearGradient><linearGradient id='paint1_linear_39_143' x1='1720' y1='-115' x2='1720' y2='643' gradientUnits='userSpaceOnUse'><stop stop-color="var(--top-right-blur-1)"/><stop offset='1' stop-color="var(--top-right-blur-2)" /></linearGradient></defs></svg>     
-    <div id="content">
-      <div class="header">
-        <h1>Quickstart Template</h1>
-        <div class="logo">
-          <img src="https://user-images.githubusercontent.com/43764894/223559085-8ff69d2f-4247-427f-a3a6-d2036b00082a.png" alt="Netlify plus Astro banner">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "Your Organization Name",
+      "url": "https://www.yourorganization.com",
+      "logo": "https://www.yourorganization.com/logo.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "customer service"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "71-75 Shelton Street, Covent Garden",
+        "addressLocality": "London",
+        "postalCode": "WC2H 9JQ"
+      },
+      "sameAs": [
+        "https://www.facebook.com/yourorganization",
+        "https://twitter.com/yourorganization",
+        "https://www.linkedin.com/company/yourorganization"
+      ]
+    }
+  </script>
+
+  <!-- Link to navbar.js -->
+  <script src="nabar.js"></script>
+</head>
+<body>
+
+
+
+  <section>
+
+  <nav class="bg-white px-4 py-3 flex flex-wrap justify-between items-center top-0 left-0 right-0 z-50 shadow-md">
+      <!-- Logo -->
+      <div class="flex-shrink-0 mr-4 mb-4 sm:mb-0">
+          <img class="h-20" src="img/posterboardhire-logo-svg.svg" alt="Logo">
+      </div>
+      <!-- Navigation Links -->
+      <ul class="flex flex-wrap justify-center sm:justify-start w-full sm:w-auto space-y-8 sm:space-y-0 sm:space-x-8 flex-col sm:flex-row">
+          <li><a href="#" class="text-gray hover:text-blue-200 font-bold text-lg">HOME</a></li>
+          <li><a href="#" class="text-gray hover:text-blue-200 font-bold text-lg">ABOUT</a></li>
+          <li><a href="#" class="text-gray hover:text-blue-200 font-bold text-lg">CONTACT US</a></li>
+        <!-- New Button -->
+      </ul>
+      <!-- Contact Details -->
+      <div class="flex flex-wrap justify-center sm:justify-end w-full sm:w-auto sm:space-x-4">
+         <div class="text-gray mb-2 sm:mb-0">Tel: 0800 612 9227</div>
+         <div class="text-gray">Email: sales@posterboardhire.com</div>
+     </div>
+  </nav>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="relative flex flex-col-reverse w-full px-6 py-12 bg-blue-600 lg:pt-0 lg:flex-col lg:pb-0">
+        <div class="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-10/12 lg:max-w-full lg:absolute xl:px-0">
+            <svg class="absolute left-0 hidden h-full text-red-700 transform -translate-x-1/2 lg:block" viewBox="0 0 100 100" fill="currentColor" preserveAspectRatio="none slice"><path d="M50 0H80L50 120H0L50 0Z"></path></svg>
+            <!-- Replace the background color with your photo -->
+            <img class="object-cover w-full h-64 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-80 lg:h-full sm:h-auto" src="https://res.cloudinary.com/espirus/image/upload/v1708548866/Newcastle-grad-hiremelogo_3_-1v-retouch_h3mtnv.jpg" alt="">
         </div>
-        <h2>
-          This is a bare-bones Astro project that has everything you need to quickly deploy it to Netlify
-        </h2>
-        <div class="bttns">
-          <a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/astro-quickstart" class="bttn primary">Deploy to Netlify</a>
-          <a href="https://github.com/netlify-templates/astro-quickstart" class="bttn secondary">View Repo</a>
+        <div class="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
+            <div class="mb-12 lg:my-32 lg:max-w-lg lg:pr-5">
+                <p class="flex inline-block text-base font-bold tracking-wider text-blue-200 uppercase rounded-full mb-7"></p>
+                <h1 class="mb-3 font-sans text-3xl font-bold tracking-tight text-white sm:text-6xl sm:leading-none">Poster Display Boards<br class="hidden md:block"><span class="inline-block text-yellow-400">for HIRE </span></h1>
+                <p class="mb-3 text-base text-gray-100 sm:pr-10 md:text-lg"></p>
+                <div class="flex flex-col items-center pt-2 sm:flex-row sm:pt-4">
+                    <a href="you.html" class="inline-flex items-center justify-center w-full h-12 px-6 mb-4 font-medium tracking-wide text-white transition duration-200 bg-red-500 rounded shadow-md sm:w-auto sm:mr-4 sm:mb-0 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Watch Video</a>
+                    <a href="#A0" class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-indigo-400 rounded shadow-md sm:w-auto hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">Quote ME</a>
+                </div>
+            </div>
         </div>
       </div>
-			<div class="resource-list">
-        <ul>
-          <li>
-            <a href="https://ntl.fyi/38O9wmY">Netlify Blog: Astro posts</a>
-					</li>
-          <li>
-            <a href="https://ntl.fyi/3KHGtyz">Netlify Docs</a>
-          </li>
-          <li>
-            <a href="https://docs.astro.build/en/getting-started/">Astro Docs</a>
-          </li>
-        </ul>
+  </div>
+</div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Section 1 -->
+                            <section class="w-full bg-white">
+                                <div class="px-10 pt-16 pb-16 ml-auto mr-auto max-w-7xl md:px-24 lg:px-12 lg:py-10">
+                                    <div class="grid gap-5 lg:grid-cols-2">
+                                        <div class="flex flex-col justify-center md:pr-8 xl:pr-0 lg:max-w-lg">
+                                            <div class="flex items-center justify-center w-16 h-16 mb-5 rounded-full bg-gradient-to-r from-red-500 to-red-500">
+
+                                            </div>
+                                            <div class="max-w-xl mb-6">
+                                                <div class="mb-6">
+                                                    <p class="inline font-sans text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl sm:leading-none">Tell us about your</p>
+                                                    <p class="block font-sans text-5xl font-bold tracking-tight text-blue-700 sm:text-6xl sm:leading-none">your event.</p>
+                                                </div>
+                                                <p class="text-base text-gray-700 md:text-lg">Providing us with a few details about event helps us quickly provide you with our best. The more information you provide us the more actuately we can quote you.XXX
+                        Quotation Checklist
+
+                        Where is you event being held?
+
+                        Please include a postcode and exact delivery location i.e. first floor foyer or room number. Access information and parking all help ensure that delivery and installation is carried out smoothly.
+                        The day or dates the event is being held on?
+
+                        Please include your name and
+
+                         of the events requirement. If the organisers does not have final details we are happy to provide a provisional quotation for budget purposes.
+                         </p>
+                                            </div>
+                                            <div class="max-w-xl mb-6">
+                                                <p class="relative">
+                                                    <a href="#Please" class="inline-flex flex-col items-center font-semibold text-purple-700 transition-colors duration-200 cursor-pointer group">
+                                                        <span class="flex items-center w-full">
+                                                            <span>Quote Me</span>
+                                                            <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12"><path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path></svg>
+                                                        </span>
+                                                        <span class="w-full h-0.5 translate-y-2 group-hover:translate-y-1 duration-200 ease-out transition opacity-0 group-hover:opacity-100 block bg-purple-600"></span>
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-center w-full lg:items-center">
+                                            <div class="flex flex-col items-end pr-3">
+                                                <img src="https://res.cloudinary.com/espirus/image/upload/v1705519184/Photoshop-WEB-1/IMG_20230315_150959016_mas684.jpg" class="object-cover w-full h-full mb-6 rounded shadow-lg lg:h-48 xl:h-56 lg:w-48 xl:w-56">
+                                                <img src="https://res.cloudinary.com/espirus/image/upload/v1705519175/Photoshop-WEB-1/IMG_20220505_183801646_tm2gzv.jpg" class="object-cover w-full h-full rounded shadow-lg lg:h-32 xl:h-40 lg:w-32 xl:w-40">
+                                            </div>
+                                            <div class="pl-3">
+                                                <img src="https://res.cloudinary.com/espirus/image/upload/v1705519177/Photoshop-WEB-1/IMG_20220524_140348519_apjdph.jpg" class="object-cover w-full h-full rounded shadow-lg lg:h-64 xl:h-80 lg:w-64 xl:w-80">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+
+
+
+
+                                  <section class="py-1 bg-white">
+                                      <div class="flex flex-col px-4 md:px-8 mx-auto space-y-3 max-w-7xl xl:px-12">
+                                          <div class="relative">
+
+                                          </div>
+
+                                          <div class="flex flex-wrap justify-center">
+                                              <div class="w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 mb-8">
+                                                  <!-- Card 1 -->
+                                                  <a href="landscape.html" class="block group">
+                                                      <div class="relative w-full h-56 overflow-hidden rounded-lg shadow-sm transition duration-300 ease-in-out transform group-hover:scale-105">
+                                                          <img class="object-cover w-full h-full" src="img/2m-x-1m-poster-boards.jpg" alt="2m x 1m Poster Boards">
+                                                          <img class="absolute top-0 left-0 w-full h-full object-cover transition duration-300 ease-in-out transform scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-125" src="img/2m-x-1m-poster-boards-BW.jpg" alt="2m x 1m Poster Boards">
+                                                      </div>
+                                                  </a>
+                                                  <a href="landscape.html" class="bg-yellow-400 w-60 flex items-center justify-center px-3 py-2.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block mt-4" target="_blank">
+                                                      <span>"2m x 1m Poster Boards"</span>
+                                                  </a>
+                                                  <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="landscape.html">Large Standard Boards</a></h2>
+                                                  <p class="text-sm text-gray-500">A 2m high x 1m wide board provides a large Velcro friendly.Surface. For maximum flexibility.</p>
+                                                  <p class="pt-2 text-xs font-medium"><a href="2x1m.html" class="mr-1 underline">Look at layout examples >></a> · <span class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                                              </div>
+
+                                              <div class="w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 mb-8">
+                                                  <!-- Card 2 -->
+                                                  <a href="landscape.html" class="block group">
+                                                      <div class="relative w-full h-56 overflow-hidden rounded-lg shadow-sm transition duration-300 ease-in-out transform group-hover:scale-105">
+                                                          <img class="object-cover w-full h-full" src="img/A0-landscape-RBS.jpg" alt="2m x 1m Poster Boards">
+                                                          <img class="absolute top-0 left-0 w-full h-full object-cover transition duration-300 ease-in-out transform scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-125" src="img/A0-landscape-RBS-BW.jpg" alt="2m x 1m Poster Boards">
+                                                      </div>
+                                                  </a>
+                                                  <a href="landscape.html" class="bg-red-400 w-60 flex items-center justify-center px-3 py-2.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block mt-4" target="_blank">
+                                                      <span>"2m x 1m Poster Boards"</span>
+                                                  </a>
+                                                  <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="landscape.html">Large Standard Boards</a></h2>
+                                                  <p class="text-sm text-gray-500">A 2m high x 1m wide board provides a large Velcro friendly.Surface. For maximum flexibility.</p>
+                                                  <p class="pt-2 text-xs font-medium"><a href="2x1m.html" class="mr-1 underline">Look at layout examples >></a> · <span class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                                              </div>
+
+                                              <div class="w-full sm:w-1/2 lg:w-1/3 px-2 sm:px-4 mb-8">
+                                          <!-- Card 3 -->
+                                          <a href="landscape.html" class="block group">
+                                              <div class="relative w-full h-56 overflow-hidden rounded-lg shadow-sm transition duration-300 ease-in-out transform group-hover:scale-105">
+                                                  <img class="object-cover w-full h-full" src="img/art-event-discovery.jpg" alt="2m x 1m Poster Boards">
+                                                  <img class="absolute top-0 left-0 w-full h-full object-cover transition duration-300 ease-in-out transform scale-105 opacity-0 group-hover:opacity-100 group-hover:scale-125" src="img/discovery-BW-scaled.jpg" alt="2m x 1m Poster Boards">
+                                              </div>
+                                          </a>
+                                          <a href="landscape.html" class="bg-indigo-400 w-60 flex items-center justify-center px-3 py-2.5 leading-none rounded-full text-xs font-medium uppercase text-white inline-block mt-4" target="_blank">
+                                              <span>"2m x 1m Poster Boards"</span>
+                                          </a>
+                                          <h2 class="text-lg font-bold sm:text-xl md:text-2xl"><a href="landscape.html">Large Standard Boards</a></h2>
+                                          <p class="text-sm text-gray-500">A 2m high x 1m wide board provides a large Velcro friendly.Surface. For maximum flexibility.</p>
+                                          <p class="pt-2 text-xs font-medium"><a href="2x1m.html" class="mr-1 underline">Look at layout examples >></a> · <span class="mx-1">April 17, 2021</span> · <span class="mx-1 text-gray-600">3 min. read</span></p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <section class="flex justify-center items-center h-screen">
+                      <div class="card bg-white shadow-2xl rounded-lg overflow-hidden max-w-sm mx-auto transform hover:rotate-12 hover:shadow-2xl transition duration-300 ease-in-out">
+                          <img src="https://res.cloudinary.com/espirus/image/upload/v1705519177/Photoshop-WEB-1/IMG_20220524_140348519_apjdph.jpg" alt="Image Description" class="w-full h-auto">
+                          <div class="card-text p-4">
+                              <h2 class="text-xl font-bold">Title</h2>
+                              <p class="text-gray-700">Some text goes here...</p>
+                          </div>
+                      </div>
+                  </section>
+                          
+
+
+
+
+
+
+
+
+
+
+
+                            <!-- Section 1 -->
+                            <section class="relative block py-20 overflow-hidden leading-6 text-left bg-white bg-blue-400">
+                                <div class="w-full max-w-5xl px-8 mx-auto leading-6 text-left xl:px-12">
+                                    <div class="relative w-full px-4 leading-6 text-center xl:flex-grow-0 xl:flex-shrink-0 lg:flex-grow-0 lg:flex-shrink-0">
+                                        <div class="box-border text-sm font-semibold text-indigo-300 uppercase">
+                                            start crafting today
+                                        </div>
+                                        <p class="box-border mx-0 mt-6 mb-0 text-sm font-normal leading-normal text-indigo-100 sm:text-lg">
+                                           We have hand-crafted the latest and greatest components so that way you can build your marketing page in style. It's time to start crafting a beautiful user experience for your visitors. A better user-experience will result in converting more visitors into paying customers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section 4 -->
+    <section class="w-full px-8 pt-20 pb-16 bg-white xl:px-0">
+      <div class="flex flex-col max-w-6xl mx-auto">
+        <h3 class="text-4xl font-extrabold leading-none sm:text-5xl md:text-4xl lg:leading-7">Display Boards for all types of events</h3>
+        <div class="grid grid-cols-6 gap-5 mt-8 md:grid-cols-12 md:gap-10 lg:mt-12">
+            <p class="col-span-6 text-base font-normal text-gray-700 lg:leading-8 xl:leading-8 md:text-xl">
+              Welcome to PosterBoard Rentals - Your Premier Destination for High-Quality Academic Poster Boards!
+
+    At Posthe role a well-designed academic poster plays in conveying your research effectively. Whether you're a student, researcher, or professional, we provide a hassle-free solution for your poster board needs.
+
+    W
+            </p>
+
+            <p class="col-span-6 text-base font-normal text-gray-700 lg:leading-8 xl:leading-9 md:text-xl">
+              Craft an application that you are proud to call your own. Aesthetically pleasing interfaces are now easier than ever to create. Don't get left behind in this era of tools and features designed to help you on your journey.
+            </p>
+
+          </div>
       </div>
+    </section>
+
+
+
+
+
+
+
+    <section>
+
+      <div class="flex flex-wrap justify-center">
+      <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+        <img src="https://res.cloudinary.com/espirus/image/upload/v1705519169/Photoshop-WEB-1/IMG_5383_kdu55u.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+      </a>
+      <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+        <img src="https://res.cloudinary.com/espirus/image/upload/v1705519172/Photoshop-WEB-1/IMG_20220313_155319987_oqvvxn.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+      </a>
+      <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+        <img src="https://res.cloudinary.com/espirus/image/upload/v1708348932/Exeter-retouch-v3_xxqowl.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+      </a>
     </div>
-	</main>
-</Layout>
+    </div>
+    <div>
+
+
+    </section>
+
+
+
+
+    <!-- Section 4 -->
+  <section class="w-full px-8 pt-20 pb-16 bg-white xl:px-0">
+    <div class="flex flex-col max-w-6xl mx-auto">
+      <h3 class="text-4xl font-extrabold leading-none sm:text-5xl md:text-3xl lg:leading-7">Build on our experience</h3>
+      <div class="grid grid-cols-6 gap-5 mt-8 md:grid-cols-12 md:gap-10 lg:mt-12">
+          <p class="col-span-6 text-base font-normal text-gray-700 lg:leading-8 xl:leading-8 md:text-xl">
+            Welcome to PosterBoard Rentals - Your Premier Destination for High-Quality Academic Poster Boards!
+
+  At Posthe role a well-designed academic poster plays in conveying your research effectively. Whether you're a student, researcher, or professional, we provide a hassle-free solution for your poster board needs.
+
+  W
+          </p>
+
+          <p class="col-span-6 text-base font-normal text-gray-700 lg:leading-8 xl:leading-9 md:text-xl">
+            Craft an application that you are proud to call your own. Aesthetically pleasing interfaces are now easier than ever to create. Don't get left behind in this era of tools and features designed to help you on your journey.
+          </p>
+
+        </div>
+    </div>
+  </section>
+
+
+  <section>
+
+    <div class="flex flex-wrap justify-center">
+    <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+      <img src="https://res.cloudinary.com/espirus/image/upload/v1705519185/Photoshop-WEB-1/IMG_20230418_101412948_iiowgz.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+    </a>
+    <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+      <img src="https://res.cloudinary.com/espirus/image/upload/v1705519177/Photoshop-WEB-1/IMG_20220524_140348519_apjdph.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+    </a>
+    <a href="https://www.example.com" class="block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4 p-4">
+      <img src="https://res.cloudinary.com/espirus/image/upload/v1705519187/Photoshop-WEB-1/IMG_20230420_075512659_hxoyk7.jpg" alt="Description of the image" class="w-full h-auto object-cover rounded-lg">
+    </a>
+  </div>
+  </div>
+  <div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Section 1 -->
+  <section class="relative block py-20 overflow-hidden leading-6 text-left bg-white bg-blue-400">
+      <div class="w-full max-w-5xl px-8 mx-auto leading-6 text-left xl:px-12">
+          <div class="relative w-full px-4 leading-6 text-center xl:flex-grow-0 xl:flex-shrink-0 lg:flex-grow-0 lg:flex-shrink-0">
+              <div class="box-border text-sm font-semibold text-indigo-300 uppercase">
+                  start crafting today
+              </div>
+              <p class="box-border mx-0 mt-6 mb-0 text-sm font-normal leading-normal text-indigo-100 sm:text-lg">
+                 We have hand-crafted the latest and greatest components so that way you can build your marketing page in style. It's time to start crafting a beautiful user experience for your visitors. A better user-experience will result in converting more visitors into paying customers.
+              </p>
+          </div>
+      </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <!-- Section 1 -->
+                      <section class="py-1 bg-white">
+                          <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
+
+                              <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+
+
+                              </div>
+                              <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+    <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12">
+        <!-- Replace the img tag with the iframe tag -->
+        <iframe class="rounded-lg shadow-xl" width="840" height="472" src="https://www.youtube.com/embed/xB2KnadUtsA" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pl-16">
+        <p class="mb-2 text-sm font-semibold leading-none text-left text-indigo-600 uppercase">know your data</p>
+        <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Optimized For Conversions</h3>
+        <p class="mt-5 text-lg text-gray-700 text md:text-left">Watch our short video showing recent events.
+
+Check out examples of poster board layouts at exhibitions and conferences across the UK, and get ideas for your next event.
+
+If you have a specific layout requirement, just email us a simple sketch showing your idea. Alternatively navigate to the contact page and detail your proposal.</p>
+    </div>
+</div>
+
+
+                              <div class="flex flex-col mb-8 animated fadeIn sm:flex-row">
+                                  <div class="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">
+                                      <img class="rounded-lg shadow-xl" src="img/Shell-Scheme-Queens.jpg" alt="">
+                                  </div>
+                                  <div class="flex flex-col justify-center mt-5 mb-8 md:mt-0 sm:w-1/2 md:w-7/12 sm:pr-16">
+                                      <p class="mb-2 text-sm font-semibold leading-none text-left text-blue-600 uppercase">Easy to customize</p>
+                                      <h3 class="mt-2 text-2xl sm:text-left md:text-4xl">Our Boards are Double-Sided</h3>
+                                      <p class="mt-5 text-lg text-gray-700 text md:text-left">
+
+Being able to use both sides of our boards maximizes your display options and reduces costs. Their simple clean construction means set-up is a breeze. The boards can form a wide variety of layouts. Quick installation reduces hall hire times and minimizes disturbance.</p>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </section>
+
+
+
+
+
+
+
+                        <section class="py-2 bg-white">
+                            <div class="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
+                                <div class="relative">
+                                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            <section class="relative w-full bg-white">
+                                                <div class="absolute w-full h-32 bg-gradient-to-b from-gray-100 to-white"></div>
+                                                <div class="relative w-full px-5 py-10 mx-auto sm:py-12 md:py-16 md:px-10 max-w-7xl">
+
+                                                    <h1 class="mb-1 text-4xl font-extrabold leading-none text-gray-900 lg:text-5xl xl:text-6xl sm:mb-3"><a href="#_">The Project Blog</a></h1>
+                                                    <p class="text-lg font-medium text-gray-500 sm:text-2xl">Designs and layouts to help you with your app.</p>
+                                                    <div class="flex flex-col lg:flex-row lg:gap-10 pb-10 mt-8 sm:mt-16">
+                                                        <div class="relative flex flex-col items-start justify-end h-full w-full lg:w-full overflow-hidden rounded-xl">
+                                                            <img src="/home/mike/Documents/posterboardhire.co.uk/img/EdinUniv-corridorBW.jpg" alt="Image 1" class="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110">
+                                                            <div class="relative z-20 w-full h-auto py-8 text-white bg-purple-500 border-t-0 border-yellow-200 px-7">
+                                                                <a href="#_" class="inline-block text-xs font-semibold absolute top-0 -mt-3.5 rounded-full px-4 py-2 uppercase text-purple-500 bg-white">Resources</a>
+                                                                <h2 class="mb-5 text-2xl lg:text-5xl font-bold"><a href="#_">Refreshing Designs</a></h2>
+                                                                <p class="mb-2 text-lg font-normal text-purple-100 opacity-100">Quench satisfying designs to help you stir up emotion and tell a story.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="relative flex flex-col items-start justify-end h-full w-full lg:w-full overflow-hidden rounded-xl">
+                                                            <img src="img/presentation-boards-dispaly-panel.jpg" alt="Image 2" class="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110">
+                                                            <div class="relative z-20 w-full h-auto py-8 text-white bg-blue-400 border-t-0 border-yellow-200 px-7">
+                                                                <a href="#_" class="inline-block text-xs font-semibold absolute top-0 -mt-3.5 rounded-full px-4 py-2 uppercase text-blue-500 bg-white">Lifestyle</a>
+                                                                <h2 class="mb-5 text-2xl lg:text-5xl font-bold"><a href="#_">Healthier Lifestyle</a></h2>
+                                                                <p class="mb-2 text-lg font-normal text-blue-100 opacity-100">Living a healthier lifestyle will help with your productivity and your mind-set.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="relative flex flex-col items-start justify-end h-full w-full lg:w-full overflow-hidden rounded-xl">
+                                                            <img src="img/Sports-Hall.jpg" alt="Image 3" class="w-full h-full object-cover transition duration-300 ease-in-out transform hover:scale-110">
+                                                            <div class="relative z-20 w-full h-auto py-8 text-white bg-yellow-400 border-t-0 border-yellow-200 px-7">
+                                                                <a href="#_" class="inline-block text-xs font-semibold absolute sm:mb-5 xl:mb-0 sm:relative xl:absolute top-0 -mt-3.5 rounded-full px-4 py-2 uppercase text-yellow-400 bg-white">Entertainment</a>
+                                                                <h2 class="mb-5 text-2xl lg:text-5xl font-bold"><a href="#_">Gaming Evolution</a></h2>
+                                                                <p class="mb-2 text-lg font-normal opacity-100 text-yellow-50">Learn about the evolution of gaming and how it started a revolution.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Section 1 -->
+            <section class="h-auto bg-white overflow-hidden">
+
+                <div class="relative w-full">
+                    <svg class="fill-current text-gray-100" viewBox="0 0 900 45" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m0 4 50 3c50 3 150 9 250 13.7 100 4.6 200 8 300 4.3S800 10.7 850 5.3L900 0v45H0V4Z" fill-rule="nonzero"></path>
+                    </svg>
+                    <div class="w-full bg-gradient-to-b from-gray-100 bg-gray-200">
+                        <div class="relative h-auto  pb-16 mx-auto max-w-6xl flex flex-col items-center">
+                            <div class="flex items-center text-gray-400 transform lg:-mt-4 mb-4 font-medium uppercase py-5 font-medium text-xs sm:px-0 px-5 text-center sm:text-sm rounded-xl leading-tight">
+                                <span>Some of the Organisation and Venues we work with</span>
+                            </div>
+
+                            <!-- Use max-w-screen-2xl to set the maximum width to the screen width -->
+                            <div class="relative w-full max-w-screen-7xl">
+                                <img src="https://res.cloudinary.com/espirus/image/upload/v1706991133/CombineLogoBW-lite_j0hysd.png".png" alt="" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+
+
+
+                          <!--footer-main-->
+                          <footer class="footer-main bg-blue-600 text-sm text-white">
+                            <div class="footer-top py-8">
+                              <div class="container mx-auto">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                  <div class="col-span-1">
+                                    <div class="about-widget">
+                                      <div class="footer-logo">
+                                        <a href="index.html">
+                                          <h6 class="text-lg">MAIL ADDRESSES</h6>
+                                        </a>
+                                      </div>
+                                      <p class="text-xs">London & Midlands</p>
+                                      <p class="text-xs">PosterBOARDhire.com</p>
+                                      <p class="text-xs">71-75 Shelton Street</p>
+                                      <p class="text-xs">Covent Garden</p>
+                                      <p class="text-xs">London WC2H 9JQ</p>
+                                      <br>
+                                      <p class="text-xs">Scotland & Northern England</p>
+                                      <p class="text-xs">ALL MAIL SHOULD BE SENT TO:</p>
+                                      <p class="text-xs">Posterboardhire Ltd</p>
+                                      <p class="text-xs">272 Bath Street</p>
+                                      <p class="text-xs">Glasgow G2 4JR</p>
+                                    </div>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <h6 class="text-lg">CONTACT US</h6>
+                                    <ul class="menu-link">
+                                      <li>
+                                        <a href="#">
+                                          <p class="text-xs">GENERAL ENQUIRIES</p>
+                                          <i class="fa fa-envelope-o" aria-hidden="true"></i>sales@posterboardhire.com
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <a href="#">
+                                          <p class="text-xs">TELEPHONE</p>
+                                          <i class="fa fa-phone" aria-hidden="true"></i>(UK) 0800 612 9227
+                                        </a>
+                                      </li>
+                                      <li>
+                                        <p class="text-xs">Posterboardhire.com is part of Posterboardhire Ltd, Registered Office: 272 Bath Street, Glasgow, G2 4JR</p>
+                                        <p class="text-xs">Company Registration Number: SC 590268</p>
+                                        <a href="#" class="text-xs">
+                                          <i class="fa " aria-hidden="true"></i>
+                                        </a>
+                                      </li>
+                                      <li></li>
+                                    </ul>
+                                  </div>
+                                  <div class="col-span-1">
+                                    <div class="social-links">
+                                      <h6 class="text-lg">SUPPLIERS OF POSTER DISPLAY BOARDS ACROSS UK</h6>
+                                      <ul>
+                                        <li class="item">
+                                          <div class="media">
+                                            <div class="media-left">
+                                              <a href="#">
+                                                <img class="media-object" src="img/3panels-80x80.jpg" alt="post-thumb">
+                                              </a>
+                                            </div>
+                                            <div class="media-body">
+                                              <h4 class="media-heading text-sm"><a href="#">Great Service</a></h4>
+                                              <p class="text-xs">We pride ourselves on our unmatched service levels.</p>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="item">
+                                          <div class="media">
+                                            <div class="media-left">
+                                              <a href="contact.html#section1">
+                                                <img class="media-object" src="img/inv-80x80.jpg" alt="post-thumb">
+                                              </a>
+                                            </div>
+                                            <div class="media-body">
+                                              <h4 class="media-heading text-sm">
+                                                <a href="contact.html#section1">Solve your Display Problems</a>
+                                              </h4>
+                                              <p class="text-xs">Contact us to discuss your for your next event.</p>
+                                            </div>
+                                          </div>
+                                        </li>
+                                        <li class="item">
+                                          <div class="media">
+                                            <div class="media-left">
+                                              <a href="terms.html">
+                                                <img class="media-object" src="img/HireMe80x80.jpg" alt="post-thumb">
+                                              </a>
+                                            </div>
+                                            <div class="media-body">
+                                              <h4 class="media-heading text-sm"><a href="terms.html">TERM & CONDITONS OF HIRE</a></h4>
+                                              <a href="terms.html" class="text-white-500 text-xs">Click TERM & CONDITION OF HIRE to read our full terms and conditions. Using this website means that you agree to be bound by its terms and conditions.</a>
+                                            </div>
+                                          </div>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="footer-bottom bg-blue-700 py-2">
+                              <div class="container mx-auto flex justify-between items-center">
+                                <div class="copyright-text text-xs">
+                                  <p>&copy; Copyright 2024. All Rights Reserved by <a href="index.html">PosterBoardHire.com</a></p>
+                                </div>
+                                <ul class="footer-bottom-link flex space-x-2">
+                                  <li><a href="index.html" class="text-xs">Home</a></li>
+                                  <li><a href="boards.html" class="text-xs">Boards</a></li>
+                                  <li><a href="contact.html" class="text-xs">Contact</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </footer>
+
+
+
+
+
+
+
+
+
+                          <!-- AlpineJS Library -->
+                          <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+
+                          </body>
+                          </html>
